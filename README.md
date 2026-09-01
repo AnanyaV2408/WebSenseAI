@@ -1,64 +1,115 @@
-# 🕷️ WebSense AI — Multi-Agent Financial Intelligence System
+# 🕷️ WebSense AI
+## Multi-Agent Financial Intelligence System
 
 ### HACKVERSE 2026 — PS-01
 
-WebSense AI is a multi-agent financial intelligence platform designed to help retail investors understand market conditions through **parallel AI agents, retrieval-augmented generation (RAG), signal classification, and risk-aware personalization**.
+WebSense AI is a **multi-agent financial intelligence platform** designed to help retail investors understand market behaviour through multiple independent AI agents.
 
-Instead of relying on a single AI response, WebSense AI divides financial analysis into specialized agents and combines their structured outputs through a synthesis layer.
+Instead of relying on a single black-box AI response, WebSense AI separates financial analysis into specialized agents for **technical momentum, market activity, sentiment, and fundamentals/regulatory evidence**.
 
-> ⚠️ **Disclaimer:** WebSense AI is an educational hackathon prototype for financial intelligence and research. It is not financial advice or a recommendation to buy or sell securities.
+These agents operate in parallel, retrieve supporting evidence where required, and pass their structured outputs to a **Synthesis Agent** that generates a transparent and personalized market interpretation.
+
+> ⚠️ **Disclaimer:** WebSense AI is a hackathon prototype intended for research and demonstration. It does not provide financial advice or guaranteed investment recommendations.
 
 ---
 
-## 🚀 Problem
+# 🚀 The Problem
 
-Financial decision-making requires information from multiple independent sources:
+Retail investors often have to analyze information from many different sources:
 
-- Price and technical indicators
-- Trading volume and market activity
-- News and sentiment
+- Price movements
+- Technical indicators
+- Trading volume
+- News
+- Market sentiment
 - Company fundamentals
 - Regulatory information
-- Individual investor risk tolerance
 - Portfolio concentration
+- Personal risk tolerance
 
-A single generic recommendation does not adequately account for all these factors.
+The challenge is not simply finding this information — it is **connecting all of it together and understanding what it means for a particular investor**.
 
-### Our Solution
+A generic AI-generated answer can also hide its reasoning and provide little visibility into the evidence behind a conclusion.
 
-WebSense AI creates a transparent multi-agent reasoning pipeline:
+### Our Goal
 
-**Market Data → Parallel Specialist Agents → Retrieved Evidence → Synthesis → Personalized Recommendation**
+WebSense AI addresses this by creating a transparent pipeline where:
 
-The user can inspect the reasoning chain instead of receiving an unexplained black-box result.
+**Market Evidence → Specialist Agents → Retrieved Evidence → Synthesis → Personalized Insight**
+
+Every major stage can be inspected through the dashboard.
 
 ---
 
-# 🧠 System Architecture
+# 💡 Our Solution
+
+WebSense AI combines four major ideas:
+
+### 1. Multi-Agent Intelligence
+
+Different agents specialize in different aspects of financial analysis.
+
+### 2. Retrieval-Augmented Generation
+
+Relevant financial and regulatory documents are retrieved to ground agent reasoning in source material.
+
+### 3. Risk-Aware Personalization
+
+The same market evidence can be interpreted differently for Conservative, Moderate, and Aggressive investors.
+
+### 4. Transparent Synthesis
+
+A final synthesis layer combines all available evidence and explicitly shows agreement, disagreement, confidence, risks, and missing information.
+
+---
+
+# 🧠 Complete System Architecture
 
 ```mermaid
 flowchart TD
 
-    A["📊 Market Data"] --> B["⚙️ Analysis Orchestrator"]
+    A["👤 User"] --> B["🖥️ WebSense AI Dashboard"]
 
-    B --> C["📈 Momentum / Technical Agent"]
-    B --> D["📊 Volume / Market Activity Agent"]
-    B --> E["📰 Sentiment & Fundamentals Agent"]
+    B --> C["🎯 User Profile<br/>Risk • Horizon • Portfolio"]
 
-    C --> F["Structured Agent Outputs"]
-    D --> F
-    E --> F
+    B --> D["📈 Selected Stock / Ticker"]
 
-    G["📚 Financial & Regulatory Documents"] --> H["🔎 RAG Retrieval"]
-    H --> E
+    D --> E["📥 Market Data Ingestion"]
 
-    F --> I["🧠 Synthesis Layer"]
+    E --> F["⚙️ Multi-Agent Orchestrator"]
 
-    J["👤 User Risk Profile"] --> I
-    K["⏳ Investment Horizon"] --> I
-    L["💼 Portfolio / Concentration"] --> I
+    F --> G["📈 Momentum / Technical Agent"]
+    F --> H["📊 Volume / Market Activity Agent"]
+    F --> I["📰 Sentiment Agent"]
+    F --> J["🏦 Fundamentals / Regulatory Agent"]
 
-    I --> M["🎯 Personalized Recommendation"]
+    K["📚 Financial & Regulatory Documents"] --> L["🔎 RAG Retrieval"]
+    L --> J
+    L --> I
 
-    M --> N["🖥️ WebSense AI Dashboard"]
+    G --> M["📦 Structured Agent Outputs"]
+    H --> M
+    I --> M
+    J --> M
+
+    M --> N["🧠 Synthesis Agent"]
+
+    C --> N
+
+    N --> O["🎯 Personalized Recommendation"]
+
+    O --> P["📊 Signal + Confidence"]
+    O --> Q["💡 Supporting Factors"]
+    O --> R["⚠️ Risks & Missing Evidence"]
+    O --> S["🔗 Citations / Sources"]
+
+    O --> T["💾 Persist Analysis Session"]
+
+    T --> U["📈 Performance Log"]
+
+    P --> B
+    Q --> B
+    R --> B
+    S --> B
+    U --> B
 
