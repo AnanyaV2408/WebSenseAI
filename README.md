@@ -1,33 +1,36 @@
 # 🕷️ WebSense AI — Multi-Agent Financial Intelligence System
 
-> **HACKVERSE 2026 — PS-01**
+### HACKVERSE 2026 — PS-01
 
-WebSense AI is a multi-agent financial intelligence platform designed to help retail investors understand market signals through **parallel AI agents, retrieval-augmented generation (RAG), and risk-aware personalization**.
+WebSense AI is a multi-agent financial intelligence platform designed to help retail investors understand market conditions through **parallel AI agents, retrieval-augmented generation (RAG), signal classification, and risk-aware personalization**.
 
-Instead of relying on a single AI response, WebSense AI separates financial analysis into specialized agents and combines their structured outputs through a synthesis layer.
+Instead of relying on a single AI response, WebSense AI divides financial analysis into specialized agents and combines their structured outputs through a synthesis layer.
 
-> ⚠️ **Disclaimer:** WebSense AI is a hackathon prototype for financial research and demonstration. It is not financial advice.
+> ⚠️ **Disclaimer:** WebSense AI is an educational hackathon prototype for financial intelligence and research. It is not financial advice or a recommendation to buy or sell securities.
 
 ---
 
-# 🚀 The Problem
+## 🚀 Problem
 
-Financial information is fragmented across:
+Financial decision-making requires information from multiple independent sources:
 
 - Price and technical indicators
-- Trading volume
+- Trading volume and market activity
 - News and sentiment
 - Company fundamentals
-- Regulatory documents
-- Individual investor risk profiles
+- Regulatory information
+- Individual investor risk tolerance
+- Portfolio concentration
 
-A single generic recommendation does not adequately account for these independent signals or the investor receiving the recommendation.
+A single generic recommendation does not adequately account for all these factors.
 
-## Our Approach
+### Our Solution
 
-WebSense AI creates a transparent reasoning pipeline:
+WebSense AI creates a transparent multi-agent reasoning pipeline:
 
-**Market Evidence → Parallel Specialist Agents → RAG Evidence → Synthesis → Personalized Recommendation**
+**Market Data → Parallel Specialist Agents → Retrieved Evidence → Synthesis → Personalized Recommendation**
+
+The user can inspect the reasoning chain instead of receiving an unexplained black-box result.
 
 ---
 
@@ -36,30 +39,26 @@ WebSense AI creates a transparent reasoning pipeline:
 ```mermaid
 flowchart TD
 
-    A[Market Data] --> B[Analysis Orchestrator]
+    A["📊 Market Data"] --> B["⚙️ Analysis Orchestrator"]
 
-    B --> C[Momentum / Technical Agent]
-    B --> D[Volume / Market Activity Agent]
-    B --> E[Sentiment & Fundamentals Agent]
+    B --> C["📈 Momentum / Technical Agent"]
+    B --> D["📊 Volume / Market Activity Agent"]
+    B --> E["📰 Sentiment & Fundamentals Agent"]
 
-    C --> F[Structured Agent Outputs]
+    C --> F["Structured Agent Outputs"]
     D --> F
     E --> F
 
-    R[Financial & Regulatory Documents] --> S[Document Chunking]
-    S --> T[Retrieval / Vector Search]
-    T --> E
+    G["📚 Financial & Regulatory Documents"] --> H["🔎 RAG Retrieval"]
+    H --> E
 
-    F --> G[Synthesis Agent]
+    F --> I["🧠 Synthesis Layer"]
 
-    U[User Risk Profile] --> G
-    V[Investment Horizon] --> G
-    W[Portfolio Holdings & Concentration] --> G
+    J["👤 User Risk Profile"] --> I
+    K["⏳ Investment Horizon"] --> I
+    L["💼 Portfolio / Concentration"] --> I
 
-    G --> X[Personalized Recommendation]
+    I --> M["🎯 Personalized Recommendation"]
 
-    X --> Y[Dashboard]
-    F --> Y
-    T --> Y
-
+    M --> N["🖥️ WebSense AI Dashboard"]
 
