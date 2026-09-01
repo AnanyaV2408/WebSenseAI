@@ -1,0 +1,11 @@
+{
+  "name": "agentdesk-server",
+  "version": "1.0.0",
+  "description": "Backend proxy for AgentDesk: holds the Anthropic API key server-side so the frontend never exposes it. Zero external dependencies.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}
